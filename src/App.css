@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 100vw;
+  background-color: rgb(71, 209, 209);
 }
 
 .nav-bar {
@@ -15,7 +17,10 @@
 }
 
 ul {
+  padding: 0;
   list-style: none;
+  width: 100vw;
+  height: fit-content;
 }
 
 .list-wrapper {
@@ -23,6 +28,37 @@ ul {
   flex-direction: row;
 }
 li {
-  /* margin: 5px; */
+  margin: 10px;
   width: 20vw;
+  text-align: center;
+}
+.songs-li {
+  margin: auto;
+  margin-bottom: 10px;
+
+  color: white;
+  text-decoration-line: underline;
+}
+.song-list {
+  background-color: dimgray;
+  border-radius: 20px;
+  color: #fff;
+  margin: auto;
+  width: 40%;
+}
+
+.lyrics {
+  width: 700px;
+  text-align: center;
+  margin: auto;
+}
+img {
+  border-radius: 40px;
+}
+.albums {
+  height: 100vh;
+  width: 100vw;
+}
+.artists {
+  height: 100vh;
 }
