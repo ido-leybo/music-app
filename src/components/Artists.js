@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Artists({ list }) {
   return (
-    <div>
+    <div className="artists">
       <h1>Artists</h1>
       <ul className="list-wrapper">
         {list.map((item) => {

@@ -51,7 +51,7 @@ export default function Artist({ list, albums, songs }) {
         {filterSongs.map((song) => {
           return (
             <li key={song.id}>
-              <h3>{song.name}</h3>
+              <h4>{song.name}</h4>
               <iframe
                 width="320"
                 height="240"
