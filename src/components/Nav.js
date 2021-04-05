@@ -1,21 +1,33 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, NavLink, Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import Album from "./Album";
-import Albums from "./Albums";
-import Artist from "./Artist";
-import Artists from "./Artists";
+// import Home from "./Home";
+// import Album from "./Album";
+// import Albums from "./Albums";
+// import Artist from "./Artist";
+// import Artists from "./Artists";
+// import Playlist from "./Playlist";
+// import Playlists from "./Playlists";
+// import Song from "./Song";
+// import Songs from "./Songs";
 import ErrorBoundary from "./ErrorBoundary";
 import NotFound from "./NotFound";
-import Playlist from "./Playlist";
-import Playlists from "./Playlists";
-import Song from "./Song";
 
 //---- dataBases ----//
 import albums from "../dataBase/albums";
 import artists from "../dataBase/artists";
 import playlists from "../dataBase/playlists";
 import songs from "../dataBase/songs";
+//---- Lazy ----//
+
+const Home = lazy(() => import("./Home"));
+const Album = lazy(() => import("./Album"));
+const Albums = lazy(() => import("./Albums"));
+const Artist = lazy(() => import("./Artist"));
+const Artists = lazy(() => import("./Artists"));
+const Playlist = lazy(() => import("./Playlist"));
+const Playlists = lazy(() => import("./Playlists"));
+const Song = lazy(() => import("./Song"));
+const Songs = lazy(() => import("./Songs"));
 
 const songsWithImages = songs.map((song) => {
   const { cover_img } = albums.find((album) => album.name === song.album);
@@ -78,33 +90,54 @@ export default function Nav() {
       </ErrorBoundary>
       <Switch>
         <Route exact path="/">
-          <Home
-            songs={topFiveSongs}
-            playlists={topFivePlaylists}
-            artists={topFiveArtists}
-            albums={topFiveAlbums}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home
+              songs={topFiveSongs}
+              playlists={topFivePlaylists}
+              artists={topFiveArtists}
+              albums={topFiveAlbums}
+            />
+          </Suspense>
         </Route>
         <Route exact path="/playlist">
-          <Playlists list={playlists} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Playlists list={playlists} />
+          </Suspense>
         </Route>
         <Route exact path="/playlist/:id">
-          <Playlist list={playlists} songs={songs} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Playlist list={playlists} songs={songs} />
+          </Suspense>
         </Route>
         <Route exact path="/artist">
-          <Artists list={artists} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Artists list={artists} />
+          </Suspense>
         </Route>
         <Route exact path="/artist/:id">
-          <Artist list={artists} albums={albums} songs={songs} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Artist list={artists} albums={albums} songs={songs} />
+          </Suspense>
         </Route>
         <Route exact path="/album">
-          <Albums list={albums} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Albums list={albums} />
+          </Suspense>
         </Route>
         <Route exact path="/album/:id">
-          <Album list={albums} artists={artists} songs={songs} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Album list={albums} songs={songs} />
+          </Suspense>
         </Route>
         <Route exact path="/song">
-          <Song list={songs} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Songs list={songs} />
+          </Suspense>
+        </Route>
+        <Route exact path="/song/:id">
+          <Suspense fallback={<div>Loading...</div>}>
+            <Song list={songs} />
+          </Suspense>
         </Route>
         <Route component={NotFound} />
       </Switch>
