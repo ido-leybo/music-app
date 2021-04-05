@@ -2,10 +2,13 @@ import React from "react";
 import { BrowserRouter, NavLink, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Album from "./Album";
+import Albums from "./Albums";
 import Artist from "./Artist";
+import Artists from "./Artists";
 import ErrorBoundary from "./ErrorBoundary";
 import NotFound from "./NotFound";
 import Playlist from "./Playlist";
+import Playlists from "./Playlists";
 import Song from "./Song";
 
 //---- dataBases ----//
@@ -28,50 +31,51 @@ const topFiveArtists = artists.slice(0, 5);
 export default function Nav() {
   return (
     <BrowserRouter>
-      <nav className="nav-bar">
-        <NavLink
-          className="nav-bar-item"
-          activeStyle={{ backgroundColor: "black" }}
-          exact
-          to="/"
-        >
-          Home
-        </NavLink>
+      <ErrorBoundary>
+        <nav className="nav-bar">
+          <NavLink
+            className="nav-bar-item"
+            activeStyle={{ backgroundColor: "black" }}
+            exact
+            to="/"
+          >
+            Home
+          </NavLink>
 
-        <NavLink
-          className="nav-bar-item"
-          activeStyle={{ backgroundColor: "black" }}
-          exact
-          to="/playlist"
-        >
-          Playlists
-        </NavLink>
-        <NavLink
-          className="nav-bar-item"
-          activeStyle={{ backgroundColor: "black" }}
-          exact
-          to="/artist"
-        >
-          Artists
-        </NavLink>
-        <NavLink
-          className="nav-bar-item"
-          activeStyle={{ backgroundColor: "black" }}
-          exact
-          to="/album"
-        >
-          Albums
-        </NavLink>
-        <NavLink
-          className="nav-bar-item"
-          activeStyle={{ backgroundColor: "black" }}
-          exact
-          to="/song"
-        >
-          Songs
-        </NavLink>
-      </nav>
-
+          <NavLink
+            className="nav-bar-item"
+            activeStyle={{ backgroundColor: "black" }}
+            exact
+            to="/playlist"
+          >
+            Playlists
+          </NavLink>
+          <NavLink
+            className="nav-bar-item"
+            activeStyle={{ backgroundColor: "black" }}
+            exact
+            to="/artist"
+          >
+            Artists
+          </NavLink>
+          <NavLink
+            className="nav-bar-item"
+            activeStyle={{ backgroundColor: "black" }}
+            exact
+            to="/album"
+          >
+            Albums
+          </NavLink>
+          <NavLink
+            className="nav-bar-item"
+            activeStyle={{ backgroundColor: "black" }}
+            exact
+            to="/song"
+          >
+            Songs
+          </NavLink>
+        </nav>
+      </ErrorBoundary>
       <Switch>
         <Route exact path="/">
           <Home
@@ -82,13 +86,22 @@ export default function Nav() {
           />
         </Route>
         <Route exact path="/playlist">
-          <Playlist list={playlists} />
+          <Playlists list={playlists} />
+        </Route>
+        <Route exact path="/playlist/:id">
+          <Playlist list={playlists} songs={songs} />
         </Route>
         <Route exact path="/artist">
-          <Artist list={artists} />
+          <Artists list={artists} />
+        </Route>
+        <Route exact path="/artist/:id">
+          <Artist list={artists} albums={albums} songs={songs} />
         </Route>
         <Route exact path="/album">
-          <Album list={albums} />
+          <Albums list={albums} />
+        </Route>
+        <Route exact path="/album/:id">
+          <Album list={albums} artists={artists} songs={songs} />
         </Route>
         <Route exact path="/song">
           <Song list={songs} />
