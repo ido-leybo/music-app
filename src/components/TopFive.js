@@ -3,7 +3,7 @@ import PickBlock from "./PickBlock";
 
 export default function TopFive({ type, list }) {
   return (
-    <div className="home-playList">
+    <div className="home-lists">
       <h2>Top 5 {type}</h2>
       <ul className="list-wrapper">
         {list.map((pick, i) => (

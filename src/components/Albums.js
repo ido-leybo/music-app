@@ -9,9 +9,9 @@ export default function Album({ list }) {
         {list.map((item) => {
           return (
             <li key={item.name}>
-              <Link to={`/album/${item.id}`}>
+              <Link style={{ textDecoration: "none" }} to={`/album/${item.id}`}>
                 <img src={item.cover_img} width="200px" alt={item.name} />
-                <h2>{item.name}</h2>
+                <h3 className="link-name">{item.name}</h3>
               </Link>
             </li>
           );

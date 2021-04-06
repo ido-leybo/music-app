@@ -9,9 +9,12 @@ export default function Artists({ list }) {
         {list.map((item) => {
           return (
             <li key={item.name}>
-              <Link to={`/artist/${item.name}`}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/artist/${item.name}`}
+              >
                 <img src={item.cover_img} width="200px" alt={item.name} />
-                <h2>{item.name}</h2>
+                <h3 className="link-name">{item.name}</h3>
               </Link>
             </li>
           );

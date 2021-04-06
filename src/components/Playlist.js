@@ -20,7 +20,7 @@ export default function Playlist({ list, songs }) {
   });
 
   return (
-    <div>
+    <div className="playlist">
       <h1>{playlistName}</h1>
       <ul className="list-wrapper">
         {filterSongs.map((song) => {

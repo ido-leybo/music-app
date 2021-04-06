@@ -1,11 +1,19 @@
 .App {
   text-align: center;
   width: 100vw;
-  background-color: rgb(71, 209, 209);
+  /* background-color: rgb(71, 209, 209); */
+  background: rgb(6, 57, 74);
+  background: linear-gradient(
+    90deg,
+    rgb(2, 31, 29) 2%,
+    rgb(8, 56, 53) 30%,
+    rgb(13, 111, 112) 74%,
+    rgb(14, 117, 116) 97%
+  );
 }
 
 .nav-bar {
-  background-color: rgb(67, 70, 77);
+  background-color: rgba(19, 56, 42, 0.514);
   height: 40px;
 }
 .nav-bar-item {
@@ -32,6 +40,9 @@ li {
   width: 20vw;
   text-align: center;
 }
+.link-name {
+  color: white;
+}
 .songs-li {
   margin: auto;
   margin-bottom: 10px;
@@ -40,7 +51,7 @@ li {
   text-decoration-line: underline;
 }
 .song-list {
-  background-color: dimgray;
+  background-color: rgba(29, 27, 27, 0.856);
   border-radius: 20px;
   color: #fff;
   margin: auto;
@@ -61,4 +72,13 @@ img {
 }
 .artists {
   height: 100vh;
+}
+
+.playlist {
+  height: 100vh;
+}
+
+.home-lists {
+  background-color: rgba(192, 192, 192, 0.274);
+  border-radius: 40px;
 }

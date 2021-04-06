@@ -21,13 +21,15 @@ export default function PickBlock({ name, src, type, item }) {
       id = item.id;
       category = "song";
       break;
+    default:
+      return "unknown";
   }
 
   return (
     <li>
-      <Link to={`/${category}/${id}`}>
+      <Link style={{ textDecoration: "none" }} to={`/${category}/${id}`}>
         <img className="pick-img" width="200px" src={src} alt={name} />
-        <h3>{name}</h3>
+        <h3 className="link-name">{name}</h3>
       </Link>
     </li>
   );
