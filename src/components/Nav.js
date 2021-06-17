@@ -1,14 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, NavLink, Switch, Route } from "react-router-dom";
-// import Home from "./Home";
-// import Album from "./Album";
-// import Albums from "./Albums";
-// import Artist from "./Artist";
-// import Artists from "./Artists";
-// import Playlist from "./Playlist";
-// import Playlists from "./Playlists";
-// import Song from "./Song";
-// import Songs from "./Songs";
+
 import ErrorBoundary from "./ErrorBoundary";
 import NotFound from "./NotFound";
 

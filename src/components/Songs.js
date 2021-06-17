@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Song({ list }) {
+export default function Songs({ list }) {
   return (
     <div className="songs-div">
       <h1>Songs</h1>
